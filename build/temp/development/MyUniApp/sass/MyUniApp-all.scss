@@ -3,6 +3,7 @@ $image-search-path: 'E:/hiring_challenges/nordantech/uniapp6/build/development/M
 $theme-name:  dynamic( 'theme-triton' );
 $include-book: dynamic(true);;
 $include-csvreader: dynamic(true);;
+$include-effect: dynamic(true);;
 $include-ext-abstractcomponent: dynamic(true);;
 $include-ext-abstractcontainer: dynamic(true);;
 $include-ext-abstractmanager: dynamic(true);;
@@ -879,8 +880,10 @@ $include-ext-window-toast: dynamic(true);;
 $include-ext-window-window: dynamic(true);;
 $include-myuniapp-application: dynamic(true);;
 $include-myuniapp-store-bookstore: dynamic(true);;
+$include-myuniapp-store-effectstore: dynamic(true);;
 $include-myuniapp-store-personnel: dynamic(true);;
 $include-myuniapp-view-main-booklist: dynamic(true);;
+$include-myuniapp-view-main-effectslist: dynamic(true);;
 $include-myuniapp-view-main-list: dynamic(true);;
 $include-myuniapp-view-main-main: dynamic(true);;
 $include-myuniapp-view-main-maincontroller: dynamic(true);;

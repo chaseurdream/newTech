@@ -3,7 +3,7 @@
  */
 Ext.define('MyUniApp.view.main.BookList', {
     extend: 'Ext.grid.Panel',
-    xtype: 'mainlist',
+    xtype: 'somelist',
 
     requires: [
         'MyUniApp.store.BookStore'
@@ -16,9 +16,11 @@ Ext.define('MyUniApp.view.main.BookList', {
     },
 
     columns: [
-        { text: 'Name',  dataIndex: 'name' },
-        { text: 'Email', dataIndex: 'email', flex: 1 },
-        { text: 'Phone', dataIndex: 'phone', flex: 1 }
+        { text: 'Activity',  dataIndex: 'Activity', flex: 1},
+        { text: 'Planned Start', dataIndex: 'Planned Start', xtype:'datecolumn', format: 'd/m/Y', flex: 1 },
+        { text: 'Actual Start', dataIndex: 'Actual Start', xtype:'datecolumn', format: 'Y-m-d', flex: 1 },
+        { text: 'Planned End', dataIndex: 'Planned End', xtype:'datecolumn', format: 'Y-m-d', flex: 1 },
+        { text: 'Actual End', dataIndex: 'Actual End', xtype:'datecolumn', format: 'Y-m-d', flex: 1 }
     ],
 
     listeners: {

@@ -6,9 +6,9 @@ Ext.define('MyUniApp.store.BookStore', {
     proxy: {
         type: 'ajax',
         reader: {
-            type: 'csv',
-            rootProperty: 'items'
+            type: 'csv'
         },
-        url: 'data.csv'
+        url: 'resources/activities1.csv',
+        headers: {'Content-Type': "text/plain;charset=utf-8" }
     }
 });

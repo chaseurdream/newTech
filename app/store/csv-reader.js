@@ -5,15 +5,14 @@ Ext.define('CsvReader', {
     // converts csv into json
     csvToJson: function (csvData) {
         console.log(csvData);
-        debugger;
         try {
             var lines = csvData.split("\r\n");
-            var colNames = lines[0].split(",");
+            var colNames = lines[0].split(";");
             var records = [];
             for (var i = 1; i < lines.length; i++) {
                 if (lines[i] == "") continue;
                 var record = {};
-                var bits = lines[i].split(",");
+                var bits = lines[i].split(";");
                 for (var j = 0; j < bits.length; j++) {
                     record[colNames[j]] = bits[j];
                 }
@@ -30,7 +29,7 @@ Ext.define('CsvReader', {
     // override
     getResponseData: function (response) {
          try {
-             var respText = JSON.stringify({items: this.csvToJson(response.responseText)});
+             var respText = JSON.stringify(this.csvToJson(response.responseText));
              console.log(respText);
              response.responseText = respText;
              return this.callParent([response]);
@@ -47,7 +46,7 @@ Ext.define('CsvReader', {
              console.log(error);
              return error;
          }
-     },
+     }
 
     // override
     // readRecords: function (strData) {
