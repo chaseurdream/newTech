@@ -17,6 +17,7 @@ Ext.define('MyUniApp.view.main.Main', {
         'MyUniApp.view.main.MainModel',
         'MyUniApp.view.main.List',
         'MyUniApp.view.main.BookList',
+        'MyUniApp.view.main.PlanChart',
         'MyUniApp.view.main.EffectsList'
     ],
 
@@ -78,36 +79,23 @@ Ext.define('MyUniApp.view.main.Main', {
     },
 
     items: [{
-        title: 'Home',
-        iconCls: 'fa-home',
-        // The following grid shares a store with the classic version's grid as well!
-        items: [{
-            xtype: 'anotherlist'
-        }]
-    }, {
-        title: 'Users',
-        iconCls: 'fa-user',
-        bind: {
-            html: '{loremIpsum}'
-        }
-    }, {
-        title: 'Groups',
-        iconCls: 'fa-users',
-        bind: {
-            html: '{loremIpsum}'
-        }
-    }, {
-        title: 'Settings',
-        iconCls: 'fa-cog',
-        bind: {
-            html: '{loremIpsum}'
-        }
-    },{
         title: 'BookList',
         iconCls: 'fa-home',
         // The following grid shares a store with the classic version's grid as well!
         items: [{
             xtype: 'somelist'
+        }]
+    },{
+        title: 'Chart time',
+        iconCls: 'fa-home',
+        // The following grid shares a store with the classic version's grid as well!
+        items: [{
+            xtype: 'panel',
+            layout: 'vbox',
+            autoScroll: true,
+            items:[{
+                    xtype: 'planchart'
+            }]
         }]
     },{
         title: 'EffectsList',
