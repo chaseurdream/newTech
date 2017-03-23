@@ -5,7 +5,6 @@ function modifyDate(value, record) {
     return dt;
 }
 
-
 Ext.define('Book', {
     extend: 'Ext.data.Model',
     fields: ['Activity',
@@ -14,22 +13,3 @@ Ext.define('Book', {
         { name: 'Planned End', type: 'date', convert: modifyDate },
         { name: 'Actual End', type: 'date', convert: modifyDate }, 'Responsible user']
 });
-
-/* 
-fields: [
-        {name: 'author', type: 'string'},
-        {name: 'title', type: 'string'},
-        {name: 'publishDate', type: 'string'}
-    ]
-Ext.define('MyUniApp.store.BookStore', {
-    extend: 'Ext.data.Store',
-    alias: 'store.book',
-    model: 'Book',
-    autoLoad: true,
-    proxy: {
-        type: 'ajax',
-        reader: 'csv',
-        url: 'data.csv'
-    }
-});
-*/

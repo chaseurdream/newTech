@@ -2,17 +2,22 @@ Ext.define('CsvReader', {
     extend: 'Ext.data.reader.Json',
     alias: 'reader.csv',
 
+    /*constructore: function(config){
+        config = config || {}
+        this.callParent([config]);
+    },
+    */
     // converts csv into json
     csvToJson: function (csvData) {
-        console.log(csvData);
         try {
-            var lines = csvData.split("\r\n");
-            var colNames = lines[0].split(";");
+            var delimiter = this.metaData && this.metaData.delimiter || ";";
+            var lines = csvData.split(/\r?\n/g);
+            var colNames = lines[0].split(delimiter);
             var records = [];
             for (var i = 1; i < lines.length; i++) {
                 if (lines[i] == "") continue;
                 var record = {};
-                var bits = lines[i].split(";");
+                var bits = lines[i].split(delimiter);
                 for (var j = 0; j < bits.length; j++) {
                     record[colNames[j]] = bits[j];
                 }
@@ -30,10 +35,8 @@ Ext.define('CsvReader', {
     getResponseData: function (response) {
          try {
              var respText = JSON.stringify(this.csvToJson(response.responseText));
-             console.log(respText);
              response.responseText = respText;
              return this.callParent([response]);
-             // return this.callParent([result]);
          } catch (ex) {
              error = new Ext.data.ResultSet({
                  total: 0,
@@ -43,15 +46,7 @@ Ext.define('CsvReader', {
                  message: ex.message
              });
              this.fireEvent('exception', this, response, error);
-             console.log(error);
              return error;
          }
      }
-
-    // override
-    // readRecords: function (strData) {
-    //     var results = this.csvToJson(strData);
-    //     debugger;
-    //     return this.callParent([results]);
-    // }
 });
