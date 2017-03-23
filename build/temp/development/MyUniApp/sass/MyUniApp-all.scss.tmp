@@ -884,6 +884,8 @@ $include-myuniapp-store-effectstore: dynamic(true);;
 $include-myuniapp-store-personnel: dynamic(true);;
 $include-myuniapp-view-main-booklist: dynamic(true);;
 $include-myuniapp-view-main-effectslist: dynamic(true);;
+$include-myuniapp-view-main-effectsviewcontroller: dynamic(true);;
+$include-myuniapp-view-main-effectsviewmodel: dynamic(true);;
 $include-myuniapp-view-main-list: dynamic(true);;
 $include-myuniapp-view-main-main: dynamic(true);;
 $include-myuniapp-view-main-maincontroller: dynamic(true);;

@@ -4,25 +4,24 @@
 Ext.define('MyUniApp.view.main.EffectsList', {
     extend: 'Ext.grid.Panel',
     xtype: 'effectslist',
-    height: 500,
     autoScroll: true,
     requires: [
-        'MyUniApp.store.EffectStore'
+        'MyUniApp.view.main.EffectsViewModel',
+        'MyUniApp.view.main.EffectsViewController'
     ],
 
     title: 'Personnel',
 
-    store: {
-        type: 'effects'
+    listeners: {
+        select: 'onItemSelected',
+        afterrender: 'populateData'
     },
 
-    columns: [
-        { text: 'Time',  dataIndex: 'Time', flex: 1},
-        { text: 'Plan', dataIndex: 'Plan'},
-        { text: 'Actual', dataIndex: 'Actual'}
-    ],
-
-    listeners: {
-        select: 'onItemSelected'
+    controller: 'effectsview',
+    viewModel: 'effectsviewmodel',
+    
+    bind: {
+        columns: '{newColumns}',
+        store: "{newRecords}"
     }
 });

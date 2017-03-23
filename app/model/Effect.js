@@ -5,7 +5,6 @@ function modifyDate(value, record) {
     return dt;
 }
 
-
 Ext.define('Effect', {
     extend: 'Ext.data.Model',
     fields: [
